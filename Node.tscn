@@ -6,21 +6,23 @@
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="Bottom" type="Viewport" parent="."]
 size = Vector2( 1920, 1080 )
 own_world = true
+render_direct_to_screen = true
 
-[node name="Camera2D" type="Camera2D" parent="Viewport"]
+[node name="Camera2D" type="Camera2D" parent="Bottom"]
+position = Vector2( 100, 100 )
 anchor_mode = 0
 current = true
 
-[node name="Game" parent="Viewport" instance=ExtResource( 2 )]
+[node name="Game" parent="Bottom" instance=ExtResource( 2 )]
 
-[node name="Viewport2" type="Viewport" parent="."]
+[node name="Top" type="Viewport" parent="."]
 size = Vector2( 1920, 1080 )
+render_direct_to_screen = true
 
-[node name="Camera2D" type="Camera2D" parent="Viewport2"]
+[node name="Camera2D" type="Camera2D" parent="Top"]
 position = Vector2( 0, 1080 )
 anchor_mode = 0
 current = true
-
