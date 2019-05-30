@@ -12,6 +12,10 @@ func _ready():
 	window_resize()
 
 func window_resize():
+	## For this to work with the optimization the project window size
+	### needs to be the same as the actual window size and the Viewport
+	### size needs to be half the window size
+	## e.g. Window (3840, 1080) and each Viewport (1920, 1080)
 	var current_size = get_viewport().size
 	
 	var scale_factor = minimum_size.y / current_size.y
