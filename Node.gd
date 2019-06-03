@@ -21,6 +21,9 @@ func _ready():
 	handle_size_changed()
 #
 func handle_size_changed():
+	# Tell root Viewport not to render
+	get_viewport().set_attach_to_screen_rect(Rect2())
+	
 	# Modify size becuase of the layout of the physical device
 	# current_size is the size of each viewport in window coordinates
 	var current_size = OS.get_window_size()

@@ -12,7 +12,6 @@ own_world = true
 render_direct_to_screen = true
 
 [node name="Camera2D" type="Camera2D" parent="Bottom"]
-position = Vector2( 100, 100 )
 anchor_mode = 0
 current = true
 

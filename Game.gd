@@ -5,6 +5,8 @@ onready var minimum_size = Vector2(1920, 2160)
 onready var top_screen = get_node("TopScreen")
 onready var bottom_screen = get_node("BottomScreen")
 
+onready var mouse_particles = get_node("CPUParticles2D")
+
 func _ready():
 	get_tree().get_root().connect("size_changed", self, "window_resize")
 	
@@ -33,3 +35,20 @@ func window_resize():
 	
 	top_screen.position = top_pos
 	bottom_screen.position = bot_pos
+
+var pressed = false
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		pressed = event.pressed
+		
+		if event.pressed:
+			mouse_particles.set_position(event.position)
+			mouse_particles.set_emitting(true)
+		
+		else:
+			mouse_particles.set_emitting(false)
+	
+	if event is InputEventMouseMotion:
+		if pressed:
+			mouse_particles.set_position(event.position)

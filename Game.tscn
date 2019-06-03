@@ -13,6 +13,7 @@ bg_color = Color( 0.784314, 0, 0, 1 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, -1000, 0 )
+angular_velocity = 4.55688e-41
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
@@ -20,7 +21,6 @@ orbit_velocity_random = 0.0
 script = ExtResource( 1 )
 
 [node name="TopScreen" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 960, 540 )
 
 [node name="TopGamePart" type="Panel" parent="TopScreen"]
@@ -31,7 +31,6 @@ margin_bottom = 540.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="BottomScreen" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 960, 1620 )
 
 [node name="BottomGamePart" type="Panel" parent="BottomScreen"]
@@ -47,3 +46,12 @@ lifetime = 2.0
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 process_material = SubResource( 3 )
 texture = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+local_coords = false
+texture = ExtResource( 2 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 0.0
