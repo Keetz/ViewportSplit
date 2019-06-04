@@ -39,11 +39,38 @@ func window_resize():
 var pressed = false
 
 func _input(event):
+	if get_tree().get_root().has_node("Node"):
+		var viewport_actual_size = get_tree().get_root().get_size_override() / 4
+		
+		var input_offset
+		
+		# Bottom Screen
+		if event.position.x <= get_viewport().size.x:
+			var fraction_x = event.position.x / get_viewport().size.x
+			var viewport_difference = viewport_actual_size.x - get_viewport().size.x
+			
+			var offset_x = -event.position.x + fraction_x * (get_tree().get_root().size.x + viewport_difference * 2) * 2
+			var offset_y = event.position.y * (viewport_actual_size.y / get_tree().get_root().size.y - 1) + viewport_actual_size.y * 2
+			
+			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
+		
+		# Top Screen
+		else:
+			var fraction_x = event.position.x / get_viewport().size.x
+			var viewport_difference = viewport_actual_size.x - get_viewport().size.x
+			
+			var offset_x = -event.position.x + fraction_x * (get_tree().get_root().size.x + viewport_difference * 2) * 2 - get_tree().get_root().get_size_override().x
+			var offset_y = event.position.y * (viewport_actual_size.y / get_tree().get_root().size.y - 1)
+			
+			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
+		
+		event = event.xformed_by(input_offset)
+	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		pressed = event.pressed
 		
 		if event.pressed:
-			mouse_particles.set_position(event.position)
+			mouse_particles.set_position(Vector2(event.position.x, event.position.y))
 			mouse_particles.set_emitting(true)
 		
 		else:
@@ -51,4 +78,4 @@ func _input(event):
 	
 	if event is InputEventMouseMotion:
 		if pressed:
-			mouse_particles.set_position(event.position)
+			mouse_particles.set_position(Vector2(event.position.x, event.position.y))

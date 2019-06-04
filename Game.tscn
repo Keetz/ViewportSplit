@@ -49,7 +49,8 @@ texture = ExtResource( 2 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 100
+amount = 1
+lifetime = 0.01
 local_coords = false
 texture = ExtResource( 2 )
 spread = 0.0
