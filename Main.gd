@@ -28,27 +28,27 @@ func handle_size_changed():
 	texture_top.rect_position.x = new_size.x / 2
 
 func _input(event):
-	if event is InputEventMouseMotion or event is InputEventMouseButton:
-		var input_offset = Transform2D(0, Vector2(-event.position.x, -event.position.y)) # Always (0, 0)
-		
-		# Top Screen
-		if event.position.x >= viewport.size.x / 2 and event.position.y < viewport.size.y:
-			var offset_x = event.position.x - viewport.size.x
-			var offset_y = -event.position.y / 2
-			
-			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
-		
-		# Bottom Screen
-		elif event.position.x < viewport.size.x / 2 and event.position.y < viewport.size.y:
-			var offset_x = event.position.x
-			var offset_y = viewport.size.y / 2 * (1 - event.position.y / viewport.size.y)
-			
-			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
-		
-		viewport.input(event.xformed_by(input_offset))
-	
-	else:
-		viewport.input(event)
+#	if event is InputEventMouseMotion or event is InputEventMouseButton:
+#		var input_offset = Transform2D(0, Vector2(-event.position.x, -event.position.y)) # Always (0, 0)
+#
+#		# Top Screen
+#		if event.position.x >= viewport.size.x / 2 and event.position.y < viewport.size.y:
+#			var offset_x = event.position.x - viewport.size.x
+#			var offset_y = -event.position.y / 2
+#
+#			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
+#
+#		# Bottom Screen
+#		elif event.position.x < viewport.size.x / 2 and event.position.y < viewport.size.y:
+#			var offset_x = event.position.x
+#			var offset_y = viewport.size.y / 2 * (1 - event.position.y / viewport.size.y)
+#
+#			input_offset = Transform2D(0, Vector2(offset_x, offset_y))
+#
+#		viewport.input(event.xformed_by(input_offset))
+#
+#	else:
+	viewport.input(event)
 
 func _unhandled_input(event):
 	viewport.unhandled_input(event)

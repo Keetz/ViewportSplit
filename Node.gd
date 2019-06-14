@@ -19,7 +19,7 @@ func _ready():
 
 	get_viewport().connect("size_changed", self, "handle_size_changed")
 	handle_size_changed()
-#
+
 func handle_size_changed():
 	# Tell root Viewport not to render
 	get_viewport().set_attach_to_screen_rect(Rect2())

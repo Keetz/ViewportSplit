@@ -23,6 +23,15 @@ margin_right = 960.0
 margin_bottom = 540.0
 custom_styles/panel = SubResource( 1 )
 
+[node name="Button" type="Button" parent="TopScreen"]
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="BottomScreen" type="Node2D" parent="."]
 position = Vector2( 960, 1620 )
 
@@ -32,6 +41,15 @@ margin_top = -540.0
 margin_right = 960.0
 margin_bottom = 540.0
 custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="BottomScreen"]
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
